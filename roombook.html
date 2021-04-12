@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <title>Hotel Grand Hyatt</title>
+    <style>
+        h1 {
+            font-size: 90px;
+            background-color: cornsilk;
+            text-align: center;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+    <h1>Hotel The <span>G</span>rand <span>H</span>aytt</h1>
+    <div class="accordion" id="booking">
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-block btn-dark" data-target="#pInfo" data-toggle="collapse">Customer
+                    Info</button>
+            </div>
+            <div class="collapse show fade" data-parent="#booking" id="pInfo">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="">Customer Name</label>
+                        <input type="text" name="" id="cstName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Check In Date</label>
+                        <input type="date" name="" id="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">No of Days</label>
+                        <input type="number" name="" id="days" min="1" value="1" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">No of People</label>
+                        <input type="number" name="" id="ppl" min="1" value="1" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-dark btn-block" data-toggle="collapse" data-target="#roomType">Select Room
+                    Type</button>
+            </div>
+            <div class="collapse fade" data-parent="#booking" id="roomType">
+                <div class="card-body">
+                    <div class="card-deck text-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Delux Room </h3>
+                            </div>
+                            <div class="card-body">
+                                <img src="../images/room2.jpg" width="600" height="500" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <input type="radio" name="room" id="delux" value="2500"> &#8377; 2500/-
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Suit Room </h3>
+                            </div>
+                            <div class="card-body">
+                                <img src="../images/room3.jpg" width="600" height="500" alt="">
+                            </div>
+                            <div class="card-footer">
+                                <input type="radio" name="room" id="suit" value="4000"> &#8377; 4000/-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-block btn-dark" data-toggle="collapse" data-target="#amenities">
+                    Select Amenities
+                </button>
+            </div>
+            <div class="collapse fade" id="amenities" data-parent="#booking">
+                <div class="card-body">
+                    <div class="card-deck text-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3> Air Conditioner</h3>
+                            </div>
+                            <div class="card-body">
+                                <img src="../images/ac.jpg" alt="" width="400" height="500">
+                            </div>
+                            <div class="card-footer">
+                                <input type="checkbox" name="" id="ac" value="1000"> &#8377; 1000/-
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Locker</h3>
+                            </div>
+                            <div class="card-body">
+                                <img src="../images/locker.jpg" alt="" width="400" height="500">
+                            </div>
+                            <div class="card-footer">
+                                <input type="checkbox" name="" id="locker" value="300"> &#8377; 300/-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-block btn-dark" data-toggle="collapse" data-target="#advance">Advance
+                    Amount</button>
+            </div>
+            <div class="collapse fade" id="advance" data-parent="#booking">
+                <div class="card-body">
+                    <div class="form-group">
+                        <dl>
+                            <dt>Advance</dt>
+                            <dd><input type="number" name="" id="adv" value="500" min="500" class="form-control
+                                "></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-block btn-outline-primary" id="book" data-toggle="modal"
+                        data-target="#summary" onclick="cstInfo()">Book</button>
+                </div>
+                <div class="modal fade" id="summary">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Booking Summary...</h2>
+                                <button class="close" data-dismiss="modal">x</button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover table-dark">
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <td id="name"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Check in Date</th>
+                                        <td id="arrivalDate"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total No of Days</th>
+                                        <td id="stay"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total No of Persons</th>
+                                        <td id="quantity"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Room Type</th>
+                                        <td id="roomPrice"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Amenities</th>
+                                        <td id="amen"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bill Amount</th>
+                                        <td id="bill"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Advance Amount</th>
+                                        <td id="advanceAmnt"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Balance Amount</th>
+                                        <td id="balance"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-dark" onclick="payment()">Pay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./roombook.js"></script>
+</body>
+
+</html>

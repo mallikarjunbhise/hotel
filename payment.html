@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Details</title>
+    <script>
+        var cardDetails = [{
+                CardNumber: 11223344556677,
+                CVV: 123,
+                YEAR: 2023
+            },
+            {
+                CardNumber: 77665544332211,
+                CVV: 765,
+                YEAR: 2021
+            }
+        ];
+
+
+        function payMoney() {
+            var txtCardNumber = document.getElementById("txtCardNumber").value;
+            var txtCVV = document.getElementById("txtCVV").value;
+            var year = document.getElementById("year").value;
+            var msg = document.getElementById("msg");
+            for (var card of cardDetails) {
+                if (card.CardNumber == txtCardNumber) {
+                    if (card.CVV == txtCVV) {
+                        // console.log("CVV Matched");
+                        msg.innerHTML = "CVV Matched"
+                        if (card.YEAR == year) {
+                            document.write("Congratulations ... Your Room is Booked....");
+                            break;
+                        } else {
+                            // console.log("Wrong year Selected");
+                            msg.innerHTML = "Wrong Year Selected";
+                        }
+                        break;
+                    } else {
+                        // console.log("Invalid CVV")
+                        msg.innerHTML = "Invalid CVV";
+                    }
+                    break;
+                } else {
+                    // console.log("Invalid Card Number");
+                    msg.innerHTML = "Invalid Card Number";
+                }
+            }
+        }
+
+        function verifyCard() {
+            for (var item of cardDetails) {
+                var cardNum = document.getElementById("txtCardNumber").value;
+                if (item.CardNumber == cardNum) {
+                    document.getElementById("txtCVV").disabled = false;
+                    var cv = document.getElementById("txtCVV");
+                    cv.addEventListener("onkeyup", verifyCVV);
+                    break;
+
+                } else {
+                    document.getElementById("txtCVV").disabled = true;
+                }
+            }
+        }
+
+        function verifyCVV() {
+            var cardCvv = document.getElementById("txtCVV").value;
+            for (var cvv of cardDetails) {
+                if (cvv.CVV == cardCvv) {
+                    document.getElementById("year").disabled = false;
+                    var yr = document.getElementById("year");
+                    yr.addEventListener("onchange", verifyYear);
+                    break;
+                } else {
+                    document.getElementById("year").disabled = true;
+                }
+            }
+        }
+
+        function verifyYear() {
+            var cardyear = document.getElementById("year").value;
+            for (var yr of cardDetails) {
+                if (yr.YEAR == cardyear) {
+                    document.getElementById("pay").disabled = false;
+                    break;
+                } else {
+                    document.getElementById("pay").disabled = true;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <dl>
+        <dt>Provide your Card Number</dt>
+        <dd><input type="text" name="" id="txtCardNumber" onkeyup="verifyCard()"></dd>
+        <dt>CVV</dt>
+        <dd><input type="text" name="" id="txtCVV" disabled onkeyup="verifyCVV()"></dd>
+        <dt>Select Year</dt>
+        <dd><select name="" id="year" disabled onchange="verifyYear()">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+            </select>
+        </dd>
+    </dl>
+    <button onclick="payMoney()" id="pay" disabled>Pay</button>
+    <h1 id="msg"></h1>
+</body>
+
+</html>
