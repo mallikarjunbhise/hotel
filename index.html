@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <title>Hotel Hyatt</title>
+    <style>
+        span {
+            color: red;
+        }
+
+        .row {
+            text-align: center;
+            color: brown;
+            background-color: cornsilk;
+            letter-spacing: 5px;
+        }
+
+        #login {
+            text-align: center;
+            color: black;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 90px;
+        }
+
+        .row>button {
+            font-size: 50px;
+        }
+
+        .room {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <script type="text/javascript">
+        var userDetails = [{
+                Name: "Ankit",
+                Mobile: 1234567890,
+                Email: "ankit123@hmail.com",
+                Password: "Ankit123"
+            },
+            {
+                Name: "Sanjeeb",
+                Mobile: 0987654321,
+                Email: "sanjeeb123@gmail.com",
+                Password: "Sanjeeb123"
+            },
+            {
+                Name: "Mansa",
+                Mobile: 1231231230,
+                Email: "mansa123@gmail.com",
+                Password: "Mansa123"
+            }
+        ];
+
+        function log() {
+            var userName = document.getElementById("userName").value;
+            var pwd = document.getElementById("pwd").value;
+            for (var user of userDetails) {
+                if (user.Name == userName) {
+                    if (user.Password == pwd) {
+                        location.href = "./roombook.html"
+                    } else {
+                        document.getElementById("text").innerHTML = "Wrong Password";
+                    }
+                    break;
+                }
+                if (user.Name != userName) {
+                    document.getElementById("text").innerHTML = "Wrong UserName";
+                }
+            }
+        }
+
+        function createUser() {
+            var newName = document.getElementById("name").value;
+            var newMobile = document.getElementById("mobile").value;
+            var newEmail = document.getElementById("email").value;
+            var newPwd = document.getElementById("newPwd").value;
+            var newUser = {
+                Name: newName,
+                Mobile: newMobile,
+                Email: newEmail,
+                Password: newPwd
+            };
+            userDetails.push(newUser);
+            console.log(userDetails);
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-10">
+            <h1>Hotel The <span>G</span>rand <span>H</span>aytt</h1>
+        </div>
+
+        <div class="col m-3">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#loginPage">Login</button>
+            <button class="btn btn-outline-danger" data-toggle="modal" data-target="#regPage">Register</button>
+        </div>
+        <div class="modal" id="loginPage">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Login here...</h3>
+                        <button class="close" data-dismiss="modal">x</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <div>
+                                <dl>
+                                    <dt>Username</dt>
+                                    <dd>
+                                        <input type="text" name="" id="userName" placeholder=" UserName"
+                                            class="form-control">
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Password</dt>
+                                    <dd><input type="text" name="" id="pwd" placeholder="Password" class="form-control">
+                                    </dd>
+                                </dl>
+                                <span id="text">If you Don't Have Login ID and Password then Register and Login Userself
+                                    it will
+                                    work</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" onclick="log()">Login</button>
+                        <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="regPage">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Registration here...</h3>
+                        <button class="close" data-dismiss="modal">x</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div>
+                            <dl>
+                                <dt>Name</dt>
+                                <dd><input type="text" name="" id="name" class="form-control"></dd>
+                            </dl>
+                        </div>
+
+
+                        <div>
+                            <dl>
+                                <dt>Mobile</dt>
+                                <dd><input type="text" name="" id="mobile" class="form-control"></dd>
+                            </dl>
+                        </div>
+
+                        <div>
+                            <dl>
+                                <dt>Email</dt>
+                                <dd><input type="email" name="" id="email" class="form-control"></dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <dl>
+                                <dt>Password</dt>
+                                <dd><input type="text" name="" id="newPwd" class="form-control"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-success" data-dismiss="modal"
+                            onclick="createUser()">Register</button>
+                        <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel fa-sliders-h" id="hotel" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="3000">
+                <img src="../images/hotel1.jpg" height="500" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+                <img src="../images/hotel2.jpg" height="500" alt="" class="d-block w-100">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+                <img src="../images/hotel3.jpg" alt="" height="500" class="d-block w-100">
+            </div>
+        </div>
+
+        <a href="#hotel" data-slide="prev" class="carousel-control-prev"><span
+                class="carousel-control-prev-icon"></span></a>
+        <a href="#hotel" data-slide="next" class="carousel-control-next"><span
+                class="carousel-control-next-icon"></span></a>
+    </div>
+    <div class="card-deck text-center">
+        <div class="card">
+            <div class="card-header">
+                <h2>Room 1</h2>
+            </div>
+            <div class="card-body">
+                <img src="../images/room.jpg" alt="" class="room">
+            </div>
+            <div class="card-footer">
+                <p>Room one Description</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Room 2</h2>
+            </div>
+            <div class="card-body">
+                <img src="../images/room2.jpg" alt="" class="room">
+            </div>
+            <div class="card-footer">
+                <p>Room 2 Description</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Room 3</h2>
+            </div>
+            <div class="card-body">
+                <img src="../images/room3.jpg" alt="" class="room">
+            </div>
+            <div class="card-footer">
+                <p>Room 3 Description</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Room 4</h2>
+            </div>
+            <div class="card-body">
+                <img src="../images/room4.jpg" alt="" class="room">
+            </div>
+            <div class="card-footer">
+                <p>Room 4 Description</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
